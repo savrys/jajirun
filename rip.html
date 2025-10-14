@@ -1,1 +1,342 @@
-
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+    <div id="text">Текст, который нужно скрыть</div>
+    <script>
+        document.getElementById('hider').onclick = function() {
+            document.getElementById('text').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+//
+//
+//
+//
+//
+//
+//
+//
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input type="button" id="selfHider" value="Спрятать себя" />
+    <script>
+        document.getElementById('selfHider').onclick = function() {
+            this.style.display = 'none';
+            // или this.remove();
+        }
+    </script>
+</body>
+</html>
+///
+///
+/
+/
+/
+/
+/
+//
+<style>.highlight { background: yellow; }</style>
+<button id="btn3">Кнопка с обработчиками</button>
+<script>
+    const btn = document.getElementById('btn3');
+    
+    btn.addEventListener('click', function() {
+        console.log('Первый');
+    });
+    
+    btn.addEventListener('click', function() {
+        btn.classList.toggle('highlight');
+    });
+    
+    btn.addEventListener('click', function() {
+        console.log('Третий');
+    });
+</script>
+////
+/
+/
+/
+/
+/
+/
+/
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .menu ul {
+            display: none;
+        }
+        
+        .menu.open ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <span class="menu-title">▶ Сладости (нажми меня)!</span>
+        <ul>
+            <li>Пирожное</li>
+            <li>Пончик</li>
+            <li>Мёд</li>
+        </ul>
+    </div>
+    <script>
+        const menu = document.querySelector('.menu');
+        const title = document.querySelector('.menu-title');
+        
+        title.addEventListener('click', function() {
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
+/////
+/
+/
+/
+/
+/
+/
+<script>
+    document.addEventListener('click', function(event) {
+        console.log('Тип события:', event.type);
+        console.log('Координаты:', event.clientX, event.clientY);
+        console.log('Целевой элемент:', event.target.tagName);
+    });
+</script>
+///
+//
+/
+/
+/
+//
+/
+<button id="btn4">Тест</button>
+<script>
+    function handleClick(event) {
+        console.log('Тип события:', event.type);
+        console.log('Целевой элемент:', event.target.tagName);
+    }
+    
+    document.getElementById('btn4').addEventListener('click', handleClick);
+</script>
+///
+/
+/
+/
+/
+//
+/
+/
+/
+/
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .pane {
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .remove-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="pane">
+            <h3>Лошадь</h3>
+            <button class="remove-button">[x]</button>
+            <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+        </div>
+        <div class="pane">
+            <h3>Осёл</h3>
+            <button class="remove-button">[x]</button>
+            <p>Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и попрежнему широко в хозяйстве многих развивающихся стран.</p>
+</div>
+        <div class="pane">
+            <h3>Кошка</h3>
+            <button class="remove-button">[x]</button>
+            <p>Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животныхкомпаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых сигналов.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('container').addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-button')) {
+                event.target.closest('.pane').remove();
+            }
+        });
+    </script>
+</body>
+</html>
+/
+/
+/
+/
+/
+/
+/
+/
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .tree ul {
+            display: none;
+        }
+        
+        .tree .open > ul {
+            display: block;
+        }
+        
+        .tree-item {
+            cursor: pointer;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="tree" id="tree">
+        <li class="tree-item">Животные
+            <ul>
+                <li class="tree-item">Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li class="tree-item">Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="tree-item">Рыбы
+            <ul>
+                <li class="tree-item">Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+                </li>
+                <li class="tree-item">Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        document.getElementById('tree').addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI' && event.target.classList.contains('tree-item')) {
+                event.target.classList.toggle('open');
+                event.stopPropagation();
+            }
+        });
+    </script>
+</body>
+</html>
+/
+/
+/
+/
+/
+/
+/
+/
+/
+<div id="parent" style="padding: 20px; border: 2px solid blue;">
+    <button id="child">Кликни меня</button>
+</div>
+<script>
+    document.getElementById('parent').addEventListener('click', function() {
+        console.log('Клик на родителе');
+    });
+    
+    document.getElementById('child').addEventListener('click', function() {
+        console.log('Клик на кнопке');
+    });
+</script>
+/
+/
+/
+/
+/
+//
+<div id="parent" style="padding: 20px; border: 2px solid blue;">
+    <button id="child">Кликни меня</button>
+</div>
+<script>
+    document.getElementById('parent').addEventListener('click', function() {
+        console.log('Клик на родителе');
+    });
+    
+    document.getElementById('child').addEventListener('click', function(event) {
+        console.log('Клик на кнопке');
+        event.stopPropagation();
+    });
+</script>
+/
+/
+/
+/
+/
+/
+//
+<button data-counter value="0">0</button>
+<button data-counter value="1">1</button>
+<script>
+    document.addEventListener('click', function(event) {
+        if (event.target.dataset.counter !== undefined) {
+            let value = parseInt(event.target.value);
+            value++;
+            event.target.value = value;
+            event.target.textContent = value;
+        }
+    });
+</script>
+/
+/
+/
+/
+/
+//
+<div id="menu">
+    <button data-action="save">Сохранить</button>
+    <button data-action="load">Загрузить</button>
+    <button data-action="delete">Удалить</button>
+</div>
+<script>
+    document.getElementById('menu').addEventListener('click', function(event) {
+        if (event.target.dataset.action) {
+            alert(`Выполняется действие: ${event.target.dataset.action}`);
+        }
+    });
+</script>
