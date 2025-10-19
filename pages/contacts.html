@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - Портфолио</title>
     <link rel="stylesheet" href="../style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -42,32 +43,36 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <!-- Контактная форма -->
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="contact-form-card">
+                            <div class="contact-form-header">
+                                <h3>Напишите мне</h3>
+                                <p class="mb-0">Я отвечу в ближайшее время</p>
+                            </div>
+                            <div class="contact-form-body">
                                 <form id="contactForm">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="name" class="form-label">Имя *</label>
-                                                <input type="text" class="form-control" id="name" name="name" required>
+                                            <div class="contact-form-group">
+                                                <label for="name" class="contact-form-label">Имя *</label>
+                                                <input type="text" class="contact-form-input" id="name" name="name" required placeholder="Ваше имя">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email *</label>
-                                                <input type="email" class="form-control" id="email" name="email" required>
+                                            <div class="contact-form-group">
+                                                <label for="email" class="contact-form-label">Email *</label>
+                                                <input type="email" class="contact-form-input" id="email" name="email" required placeholder="your@email.com">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="subject" class="form-label">Тема</label>
-                                        <input type="text" class="form-control" id="subject" name="subject">
+                                    <div class="contact-form-group">
+                                        <label for="subject" class="contact-form-label">Тема сообщения</label>
+                                        <input type="text" class="contact-form-input" id="subject" name="subject" placeholder="Тема вашего сообщения">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">Сообщение *</label>
-                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    <div class="contact-form-group">
+                                        <label for="message" class="contact-form-label">Сообщение *</label>
+                                        <textarea class="contact-form-input contact-form-textarea" id="message" name="message" required placeholder="Расскажите, чем я могу вам помочь..."></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="contact-form-submit">
                                         <i class="bi bi-send"></i> Отправить сообщение
                                     </button>
                                 </form>
@@ -92,7 +97,7 @@
                                         <i class="bi bi-github"></i>
                                         <div>
                                             <strong>GitHub</strong>
-                                            <p>github.com/username</p>
+                                            <p>github.com/savrys</p>
                                         </div>
                                     </div>
                                     <div class="contact-item">
@@ -115,7 +120,7 @@
                                 <div class="social-links mt-4">
                                     <h5>Социальные сети</h5>
                                     <div class="d-flex gap-3">
-                                        <a href="#" class="social-link">
+                                        <a href="https://github.com/savrys" class="social-link" target="_blank">
                                             <i class="bi bi-github"></i>
                                         </a>
                                         <a href="#" class="social-link">
@@ -123,9 +128,6 @@
                                         </a>
                                         <a href="#" class="social-link">
                                             <i class="bi bi-telegram"></i>
-                                        </a>
-                                        <a href="#" class="social-link">
-                                            <i class="bi bi-vk"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -186,5 +188,6 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
