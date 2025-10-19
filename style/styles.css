@@ -1592,3 +1592,13 @@ dialog {
   justify-content: center !important;
   margin: 0 auto !important;
 }
+/* Для главной страницы - надписи в тёмной теме */
+[data-bs-theme="dark"] .hero-name,
+[data-bs-theme="dark"] .skill-category {
+    color: #764ba2 !important;
+}
+
+/* Для раздела проектов - надпись "все проекты" */
+[data-bs-theme="dark"] .all-projects-title {
+    color: #c9c9c9 !important;
+}
