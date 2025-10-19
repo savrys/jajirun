@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">React</span>
+                                <span class="skill-name">C++</span>
                                 <div class="progress">
                                     <div class="progress-bar" style="width: 60%">60%</div>
                                 </div>
@@ -101,7 +101,7 @@
                     <div class="project-card" onclick="openProjectModal('project3')">
                         <img src="images/goods3.jpg" alt="Интернет-магазин" class="project-image">
                         <h3 class="project-title">Интернет-магазин</h3>
-                        <p class="project-tech">React</p>
+                        <p class="project-tech">C++</p>
                     </div>
                 </div>
             </section>
@@ -134,13 +134,8 @@
             <div id="modalProjectDescription" class="project-description">
                 Описание проекта будет здесь
             </div>
-            <div class="project-links">
-                <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank">
-                    <i class="bi bi-eye"></i> Живая версия
-                </a>
-                <a href="#" id="modalSourceLink" class="btn btn-outline-secondary" target="_blank">
-                    <i class="bi bi-github"></i> Исходный код
-                </a>
+            <div class="project-links" id="modalProjectLinks">
+                <!-- Ссылки будут добавлены через JS -->
             </div>
         </div>
     </dialog>
@@ -169,36 +164,62 @@
             project1: {
                 title: 'Личный сайт',
                 image: 'images/goods1.jpg',
-                description: 'Современный адаптивный личный сайт-портфолио, созданный с использованием HTML5 и CSS3. Включает анимации, темную тему и мобильную оптимизацию.',
-                liveLink: '#',
-                sourceLink: '#'
+                description: 'Современный адаптивный личный сайт-портфолио, созданный с использованием HTML5 и CSS3. Включает анимации, темную тему и мобильную оптимизацию. Проект демонстрирует навыки верстки и работы с CSS Grid/Flexbox.',
+                technologies: ['HTML', 'CSS', 'Bootstrap'],
+                liveLink: 'https://savrys.github.io/jajirun/',
+                sourceLink: 'https://github.com/savrys/jajirun'
             },
             project2: {
                 title: 'Todo приложение',
                 image: 'images/goods2.jpg',
-                description: 'Интерактивное приложение для управления задачами с возможностью добавления, удаления и отметки выполненных задач. Реализовано на чистом JavaScript.',
-                liveLink: '#',
-                sourceLink: '#'
+                description: 'Интерактивное приложение для управления задачами с возможностью добавления, удаления и отметки выполненных задач. Реализовано на чистом JavaScript с использованием LocalStorage для сохранения данных.',
+                technologies: ['JavaScript', 'LocalStorage'],
+                inDevelopment: true
             },
             project3: {
                 title: 'Интернет-магазин',
                 image: 'images/goods3.jpg',
-                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на React с использованием современных хуков.',
-                liveLink: '#',
-                sourceLink: '#'
+                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на C++ с использованием современных технологий.',
+                technologies: ['C++', 'Algorithms', 'Data Structures'],
+                liveLink: 'https://savrys.github.io/frontend-and-backend-practice/',
+                sourceLink: 'https://github.com/savrys/frontend-and-backend-practice'
             }
         };
 
         function openProjectModal(projectId) {
             const project = projects[projectId];
             const modal = document.getElementById('projectModal');
+            const linksContainer = document.getElementById('modalProjectLinks');
             
             document.getElementById('modalProjectTitle').textContent = project.title;
             document.getElementById('modalProjectImage').src = project.image;
             document.getElementById('modalProjectImage').alt = project.title;
             document.getElementById('modalProjectDescription').textContent = project.description;
-            document.getElementById('modalLiveLink').href = project.liveLink;
-            document.getElementById('modalSourceLink').href = project.sourceLink;
+            
+            // Очищаем и создаем новые ссылки
+            linksContainer.innerHTML = '';
+            
+            if (project.inDevelopment) {
+                const notice = document.createElement('div');
+                notice.className = 'development-notice';
+                notice.textContent = 'В разработке';
+                linksContainer.appendChild(notice);
+            } else {
+                const liveLink = document.createElement('a');
+                liveLink.href = project.liveLink;
+                liveLink.className = 'btn btn-primary';
+                liveLink.target = '_blank';
+                liveLink.innerHTML = '<i class="bi bi-eye"></i> Живая версия';
+                
+                const sourceLink = document.createElement('a');
+                sourceLink.href = project.sourceLink;
+                sourceLink.className = 'btn btn-outline-secondary';
+                sourceLink.target = '_blank';
+                sourceLink.innerHTML = '<i class="bi bi-github"></i> Исходный код';
+                
+                linksContainer.appendChild(liveLink);
+                linksContainer.appendChild(sourceLink);
+            }
             
             modal.showModal();
         }
