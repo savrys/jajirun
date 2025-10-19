@@ -26,13 +26,10 @@
                     <a class="nav__link nav__link--active" href="index.html">Главная</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="pages/news.html">Новости</a>
+                    <a class="nav__link" href="pages/projects.html">Проекты</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="pages/practices.html">Практики</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="pages/goods.html">Товары</a>
+                    <a class="nav__link" href="pages/diary.html">Дневник</a>
                 </li>
                 <li class="nav__item">
                     <a class="nav__link" href="pages/contacts.html">Контакты</a>
@@ -47,12 +44,35 @@
                     <div class="profile__info">
                         <h2 class="profile__name">Савин Арсений Дмитриевич</h2>
                         <p class="profile__group">ЭФБО-15-24</p>
-                        <div class="skills__grid">
-                            <div class="skill">HTML/CSS</div>
-                            <div class="skill">JavaScript</div>
-                            <div class="skill">Python</div>
-                            <div class="skill">Git</div>
+                        <div class="skills-progress">
+                            <div class="skill-item">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 90%">90%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 80%">80%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Bootstrap</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 85%">85%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">React</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 60%">60%</div>
+                                </div>
+                            </div>
                         </div>
+                        <button class="btn btn-primary mt-3" onclick="downloadResume()">
+                            <i class="bi bi-download"></i> Скачать резюме
+                        </button>
                     </div>
                 </div>
             </section>
@@ -65,20 +85,23 @@
                 </p>
             </section>
             
-            <section class="experience">
-                <h2 class="experience__title">Мой опыт работы</h2>
-                <div class="experience__grid">
-                    <div class="experience__card">
-                        <h3 class="experience__card-title">Опыт 1</h3>
-                        <p class="experience__card-desc">Работал фантазёром. Сочинял и праздновал.</p>
+            <section class="projects-preview">
+                <h2 class="projects-preview__title">Лучшие проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openProjectModal('project1')">
+                        <img src="images/goods1.jpg" alt="Личный сайт" class="project-image">
+                        <h3 class="project-title">Личный сайт</h3>
+                        <p class="project-tech">HTML, CSS</p>
                     </div>
-                    <div class="experience__card">
-                        <h3 class="experience__card-title">Опыт 2</h3>
-                        <p class="experience__card-desc">Работал воровством. Воровал и продавал.</p>
+                    <div class="project-card" onclick="openProjectModal('project2')">
+                        <img src="images/goods2.jpg" alt="Todo приложение" class="project-image">
+                        <h3 class="project-title">Todo приложение</h3>
+                        <p class="project-tech">JavaScript</p>
                     </div>
-                    <div class="experience__card">
-                        <h3 class="experience__card-title">Опыт 3</h3>
-                        <p class="experience__card-desc">Работал рэпером. Читал и пел.</p>
+                    <div class="project-card" onclick="openProjectModal('project3')">
+                        <img src="images/goods3.jpg" alt="Интернет-магазин" class="project-image">
+                        <h3 class="project-title">Интернет-магазин</h3>
+                        <p class="project-tech">React</p>
                     </div>
                 </div>
             </section>
@@ -86,8 +109,41 @@
         
         <footer class="footer">
             <p>© 2025 Семестровая работа. Все права защищены.</p>
+            <div class="footer-contacts">
+                <a href="mailto:savars328@gmail.com" class="contact-link">
+                    <i class="bi bi-envelope"></i> savars328@gmail.com
+                </a>
+                <a href="https://github.com" class="contact-link">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+                <span class="contact-link">
+                    <i class="bi bi-geo-alt"></i> Москва, Россия
+                </span>
+            </div>
         </footer>
     </div>
+
+    <!-- Модальное окно проекта -->
+    <dialog id="projectModal">
+        <div class="modal-header">
+            <h2 id="modalProjectTitle">Название проекта</h2>
+            <button type="button" class="btn-close" onclick="projectModal.close()"></button>
+        </div>
+        <div class="modal-content">
+            <img id="modalProjectImage" src="" alt="" class="modal-project-image">
+            <div id="modalProjectDescription" class="project-description">
+                Описание проекта будет здесь
+            </div>
+            <div class="project-links">
+                <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank">
+                    <i class="bi bi-eye"></i> Живая версия
+                </a>
+                <a href="#" id="modalSourceLink" class="btn btn-outline-secondary" target="_blank">
+                    <i class="bi bi-github"></i> Исходный код
+                </a>
+            </div>
+        </div>
+    </dialog>
 
     <script>
         function toggleTheme() {
@@ -104,6 +160,49 @@
             }
         }
 
+        function downloadResume() {
+            alert('Резюме будет скачано. В реальном проекте здесь будет ссылка на PDF файл.');
+            // В реальном проекте: window.open('assets/resume.pdf', '_blank');
+        }
+
+        const projects = {
+            project1: {
+                title: 'Личный сайт',
+                image: 'images/goods1.jpg',
+                description: 'Современный адаптивный личный сайт-портфолио, созданный с использованием HTML5 и CSS3. Включает анимации, темную тему и мобильную оптимизацию.',
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            project2: {
+                title: 'Todo приложение',
+                image: 'images/goods2.jpg',
+                description: 'Интерактивное приложение для управления задачами с возможностью добавления, удаления и отметки выполненных задач. Реализовано на чистом JavaScript.',
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            project3: {
+                title: 'Интернет-магазин',
+                image: 'images/goods3.jpg',
+                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на React с использованием современных хуков.',
+                liveLink: '#',
+                sourceLink: '#'
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const project = projects[projectId];
+            const modal = document.getElementById('projectModal');
+            
+            document.getElementById('modalProjectTitle').textContent = project.title;
+            document.getElementById('modalProjectImage').src = project.image;
+            document.getElementById('modalProjectImage').alt = project.title;
+            document.getElementById('modalProjectDescription').textContent = project.description;
+            document.getElementById('modalLiveLink').href = project.liveLink;
+            document.getElementById('modalSourceLink').href = project.sourceLink;
+            
+            modal.showModal();
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
@@ -114,6 +213,13 @@
             } else {
                 themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
             }
+
+            // Закрытие модального окна при клике на backdrop
+            document.getElementById('projectModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.close();
+                }
+            });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
