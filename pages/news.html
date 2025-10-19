@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Новости проекта</h1>
+            <div class="theme-switcher">
+                <button class="theme-switcher__button" onclick="toggleTheme()">
+                    <i class="bi bi-moon-fill"></i> Сменить тему
+                </button>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="news">
+                <h2 class="news__title">Последние новости</h2>
+                
+                <div class="news__list">
+                    <article class="news__item">
+                        <h3 class="news__item-title">Запуск нового проекта</h3>
+                        <p class="news__item-meta"><strong>Дата:</strong> 15.09.2025 | <strong>Автор:</strong> Арсений</p>
+                        <p class="news__item-content">Мы рады сообщить о запуске нового образовательного проекта! Теперь все материалы будут доступны в одном месте.</p>
+                    </article>
+                    
+                    <article class="news__item">
+                        <h3 class="news__item-title">Обновление расписания</h3>
+                        <p class="news__item-meta"><strong>Дата:</strong> 10.09.2025 | <strong>Автор:</strong> Преподаватель</p>
+                        <p class="news__item-content">Опубликовано новое расписание практических занятий на осенний семестр 2025/2026 учебного года.</p>
+                    </article>
+                    
+                    <article class="news__item">
+                        <h3 class="news__item-title">Технические работы</h3>
+                        <p class="news__item-meta"><strong>Дата:</strong> 05.09.2025 | <strong>Автор:</strong> Технический отдел</p>
+                        <p class="news__item-content">В ближайшие выходные планируются технические работы на сервере. Возможны временные перерывы в работе.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
+        </footer>
+    </div>
 
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (newTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (savedTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        });
+    </script>
+</body>
+</html>
