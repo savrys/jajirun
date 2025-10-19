@@ -61,6 +61,18 @@
   --shadow-lg: 0 8px 25px rgba(0,0,0,0.5);
 }
 
+/* ===== ЦВЕТА ТЕКСТА В ТЕМНОЙ ТЕМЕ ===== */
+[data-theme="dark"] .profile-title,
+[data-theme="dark"] .profile-name,
+[data-theme="dark"] .skill-tag {
+    color: #764ba2 !important;
+}
+
+[data-theme="dark"] .projects-preview__title,
+[data-theme="dark"] .section-title {
+    color: #c9c9c9 !important;
+}
+
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
 * {
   box-sizing: border-box;
@@ -1592,4 +1604,3 @@ dialog {
   justify-content: center !important;
   margin: 0 auto !important;
 }
-
