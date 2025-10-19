@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Мои проекты</h1>
+            <p class="header__subtitle">Коллекция учебных и личных работ</p>
+            <div class="theme-switcher">
+                <button class="theme-switcher__button" onclick="toggleTheme()">
+                    <i class="bi bi-moon-fill"></i> Сменить тему
+                </button>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="projects">
+                <h2 class="projects__title">Все проекты</h2>
+                
+                <!-- Фильтры -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h5 class="card-title mb-3">Фильтровать по технологиям:</h5>
+                                <div class="filter-buttons">
+                                    <button class="btn btn-outline-primary active" data-filter="all">Все</button>
+                                    <button class="btn btn-outline-primary" data-filter="html">HTML/CSS</button>
+                                    <button class="btn btn-outline-primary" data-filter="js">JavaScript</button>
+                                    <button class="btn btn-outline-primary" data-filter="react">React</button>
+                                    <button class="btn btn-outline-primary" data-filter="bootstrap">Bootstrap</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Поиск проектов..." id="projectSearch">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Сетка проектов -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Проект 1 -->
+                    <div class="project-card" data-tech="html bootstrap" data-name="Личный сайт">
+                        <img src="../images/goods1.jpg" alt="Личный сайт" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Личный сайт</h3>
+                            <p class="project-description">Современный адаптивный сайт-портфолио с темной темой</p>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <button class="btn btn-primary mt-2" onclick="openProjectModal('project1')">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Проект 2 -->
+                    <div class="project-card" data-tech="js" data-name="Todo приложение">
+                        <img src="../images/goods2.jpg" alt="Todo приложение" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Todo приложение</h3>
+                            <p class="project-description">Интерактивное приложение для управления задачами</p>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">LocalStorage</span>
+                            </div>
+                            <button class="btn btn-primary mt-2" onclick="openProjectModal('project2')">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Проект 3 -->
+                    <div class="project-card" data-tech="react" data-name="Интернет-магазин">
+                        <img src="../images/goods3.jpg" alt="Интернет-магазин" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Интернет-магазин</h3>
+                            <p class="project-description">Полнофункциональный магазин с корзиной покупок</p>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Hooks</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <button class="btn btn-primary mt-2" onclick="openProjectModal('project3')">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Проект 4 -->
+                    <div class="project-card" data-tech="html bootstrap" data-name="Портфолио">
+                        <img src="../images/goods4.jpg" alt="Портфолио" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Портфолио</h3>
+                            <p class="project-description">Классическое портфолио разработчика</p>
+                            <div class="project-tech-tags">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <button class="btn btn-primary mt-2" onclick="openProjectModal('project4')">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2025 Семестровая работа. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно проекта -->
+    <dialog id="projectModal">
+        <div class="modal-header">
+            <h2 id="modalProjectTitle">Название проекта</h2>
+            <button type="button" class="btn-close" onclick="projectModal.close()"></button>
+        </div>
+        <div class="modal-content">
+            <img id="modalProjectImage" src="" alt="" class="modal-project-image">
+            <div id="modalProjectDescription" class="project-description">
+                Описание проекта будет здесь
+            </div>
+            <div class="project-tech-tags mb-3" id="modalProjectTags">
+                <!-- Технологии будут добавлены через JS -->
+            </div>
+            <div class="project-links">
+                <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank">
+                    <i class="bi bi-eye"></i> Живая версия
+                </a>
+                <a href="#" id="modalSourceLink" class="btn btn-outline-secondary" target="_blank">
+                    <i class="bi bi-github"></i> Исходный код
+                </a>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        const projects = {
+            project1: {
+                title: 'Личный сайт',
+                image: '../images/goods1.jpg',
+                description: 'Современный адаптивный личный сайт-портфолио, созданный с использованием HTML5 и CSS3. Включает анимации, темную тему и мобильную оптимизацию. Проект демонстрирует навыки верстки и работы с CSS Grid/Flexbox.',
+                technologies: ['HTML', 'CSS', 'Bootstrap'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            project2: {
+                title: 'Todo приложение',
+                image: '../images/goods2.jpg',
+                description: 'Интерактивное приложение для управления задачами с возможностью добавления, удаления и отметки выполненных задач. Реализовано на чистом JavaScript с использованием LocalStorage для сохранения данных.',
+                technologies: ['JavaScript', 'LocalStorage'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            project3: {
+                title: 'Интернет-магазин',
+                image: '../images/goods3.jpg',
+                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на React с использованием современных хуков и контекста для управления состоянием.',
+                technologies: ['React', 'Hooks', 'API'],
+                liveLink: '#',
+                sourceLink: '#'
+            },
+            project4: {
+                title: 'Портфолио',
+                image: '../images/goods4.jpg',
+                description: 'Классическое портфолио разработчика с фильтрацией проектов и модальными окнами. Включает систему тем и адаптивный дизайн для всех устройств.',
+                technologies: ['HTML', 'CSS', 'Bootstrap'],
+                liveLink: '#',
+                sourceLink: '#'
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const project = projects[projectId];
+            const modal = document.getElementById('projectModal');
+            
+            document.getElementById('modalProjectTitle').textContent = project.title;
+            document.getElementById('modalProjectImage').src = project.image;
+            document.getElementById('modalProjectImage').alt = project.title;
+            document.getElementById('modalProjectDescription').textContent = project.description;
+            document.getElementById('modalLiveLink').href = project.liveLink;
+            document.getElementById('modalSourceLink').href = project.sourceLink;
+            
+            // Обновляем теги технологий
+            const tagsContainer = document.getElementById('modalProjectTags');
+            tagsContainer.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.textContent = tech;
+                tagsContainer.appendChild(tag);
+            });
+            
+            modal.showModal();
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (newTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+        }
+
+        // Фильтрация проектов
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeButton = document.querySelector('.theme-switcher__button');
+            if (savedTheme === 'dark') {
+                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+            } else {
+                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+            }
+
+            // Обработчики для фильтров
+            const filterButtons = document.querySelectorAll('.filter-buttons .btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Убираем активный класс у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterProjects(filter);
+                });
+            });
+
+            // Поиск проектов
+            const searchInput = document.getElementById('projectSearch');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterProjects('all', searchTerm);
+            });
+
+            // Закрытие модального окна
+            document.getElementById('projectModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    this.close();
+                }
+            });
+        });
+
+        function filterProjects(techFilter, searchTerm = '') {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                const tech = card.dataset.tech;
+                const name = card.dataset.name.toLowerCase();
+                const showByTech = techFilter === 'all' || tech.includes(techFilter);
+                const showBySearch = !searchTerm || name.includes(searchTerm);
+                
+                card.style.display = (showByTech && showBySearch) ? 'block' : 'none';
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
