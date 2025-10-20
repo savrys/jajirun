@@ -67,14 +67,14 @@
 [data-bs-theme="dark"] .profile_name,
 [data-bs-theme="dark"] .skill-tag,
 [data-bs-theme="dark"] .skills-container .skill-tag {
-    color: #0d0217 !important;
+    color: #fcfafa !important;
 }
 
 [data-bs-theme="dark"] .projects-preview__title,
 [data-bs-theme="dark"] .section-title,
 [data-bs-theme="dark"] .projects-section h2,
 [data-bs-theme="dark"] .projects-preview h2 {
-    color: #fcfafc !important;
+    color: #fcfafa !important;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
