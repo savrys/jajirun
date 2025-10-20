@@ -64,12 +64,16 @@
 /* ===== ЦВЕТА ТЕКСТА В ТЕМНОЙ ТЕМЕ ===== */
 [data-bs-theme="dark"] .profile-title,
 [data-bs-theme="dark"] .profile-name,
-[data-bs-theme="dark"] .skill-tag {
-    color: #15011a !important;
+[data-bs-theme="dark"] .profile_name,
+[data-bs-theme="dark"] .skill-tag,
+[data-bs-theme="dark"] .skills-container .skill-tag {
+    color: #0d0217 !important;
 }
 
 [data-bs-theme="dark"] .projects-preview__title,
-[data-bs-theme="dark"] .section-title {
+[data-bs-theme="dark"] .section-title,
+[data-bs-theme="dark"] .projects-section h2,
+[data-bs-theme="dark"] .projects-preview h2 {
     color: #fcfafc !important;
 }
 
