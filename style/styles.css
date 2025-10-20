@@ -72,8 +72,8 @@
 [data-theme="dark"] .skill,
 [data-theme="dark"] .skills__grid .skill,
 [data-theme="dark"] .skills-container .skill-tag,
-[data-theme="dark"] .project-tech,
-[data-theme="dark"] .skill-name {
+[data-theme="dark"] .skill-name,
+[data-theme="dark"] p.project-tech {
     color: #764ba2 !important;
 }
 
@@ -144,7 +144,8 @@
 html[data-theme="dark"] .profile-title,
 html[data-theme="dark"] .profile-name,
 html[data-theme="dark"] .skill-tag,
-html[data-theme="dark"] .skill-name {
+html[data-theme="dark"] .skill-name,
+html[data-theme="dark"] p.project-tech {
     color: #764ba2 !important;
 }
 
@@ -157,7 +158,8 @@ html[data-theme="dark"] .section-title {
 body[data-theme="dark"] .profile-title,
 body[data-theme="dark"] .profile-name,
 body[data-theme="dark"] .skill-tag,
-body[data-theme="dark"] .skill-name {
+body[data-theme="dark"] .skill-name,
+body[data-theme="dark"] p.project-tech {
     color: #764ba2 !important;
     -webkit-text-fill-color: #764ba2 !important;
 }
