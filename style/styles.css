@@ -45,7 +45,7 @@
 }
 
 /* Темная тема */
-[data-theme="dark"] {
+[data-bs-theme="dark"] {
   --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
   --bg-dark: #0d1117;
@@ -61,20 +61,66 @@
   --shadow-lg: 0 8px 25px rgba(0,0,0,0.5);
 }
 
-/* ===== ЦВЕТА ТЕКСТА В ТЕМНОЙ ТЕМЕ ===== */
+/* ===== ЖЁСТКОЕ ПЕРЕОПРЕДЕЛЕНИЕ ЦВЕТОВ ТЕКСТА В ТЁМНОЙ ТЕМЕ ===== */
 [data-bs-theme="dark"] .profile-title,
 [data-bs-theme="dark"] .profile-name,
-[data-bs-theme="dark"] .profile_name,
+[data-bs-theme="dark"] .profile__name,
+[data-bs-theme="dark"] .profile__title,
+[data-bs-theme="dark"] .header__title,
 [data-bs-theme="dark"] .skill-tag,
+[data-bs-theme="dark"] .skill,
+[data-bs-theme="dark"] .skills__grid .skill,
 [data-bs-theme="dark"] .skills-container .skill-tag {
-    color: #fcfafa !important;
+    color: #764ba2 !important;
+    opacity: 1 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
 }
 
 [data-bs-theme="dark"] .projects-preview__title,
 [data-bs-theme="dark"] .section-title,
 [data-bs-theme="dark"] .projects-section h2,
-[data-bs-theme="dark"] .projects-preview h2 {
-    color: #fcfafa !important;
+[data-bs-theme="dark"] .projects-preview h2,
+[data-bs-theme="dark"] .projects__title,
+[data-bs-theme="dark"] .diary__title,
+[data-bs-theme="dark"] .skills__title,
+[data-bs-theme="dark"] .experience__title,
+[data-bs-theme="dark"] .contacts__title,
+[data-bs-theme="dark"] .goods__title,
+[data-bs-theme="dark"] .news__title,
+[data-bs-theme="dark"] .practices__title {
+    color: #c9c9c9 !important;
+    opacity: 1 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Принудительное изменение через JavaScript-совместимый селектор */
+html[data-bs-theme="dark"] .profile-title,
+html[data-bs-theme="dark"] .profile-name,
+html[data-bs-theme="dark"] .skill-tag {
+    color: #764ba2 !important;
+    opacity: 1 !important;
+}
+
+html[data-bs-theme="dark"] .projects-preview__title,
+html[data-bs-theme="dark"] .section-title {
+    color: #c9c9c9 !important;
+    opacity: 1 !important;
+}
+
+/* Самый жёсткий вариант */
+body[data-bs-theme="dark"] .profile-title,
+body[data-bs-theme="dark"] .profile-name,
+body[data-bs-theme="dark"] .skill-tag {
+    color: #764ba2 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #764ba2 !important;
+}
+
+body[data-bs-theme="dark"] .projects-preview__title,
+body[data-bs-theme="dark"] .section-title {
+    color: #c9c9c9 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #c9c9c9 !important;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -1607,4 +1653,4 @@ dialog {
 .page-container .nav-list {
   justify-content: center !important;
   margin: 0 auto !important;
-}
+    }
