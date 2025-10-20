@@ -72,7 +72,7 @@
 [data-theme="dark"] .skill,
 [data-theme="dark"] .skills__grid .skill,
 [data-theme="dark"] .skills-container .skill-tag,
-[data-theme="dark"] .p.project-tech,
+[data-theme="dark"] .project-tech,
 [data-theme="dark"] .skill-name {
     color: #764ba2 !important;
 }
