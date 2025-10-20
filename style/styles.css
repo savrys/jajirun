@@ -62,14 +62,14 @@
 }
 
 /* ===== ЦВЕТА ТЕКСТА В ТЕМНОЙ ТЕМЕ ===== */
-[data-theme="dark"] .profile-title,
-[data-theme="dark"] .profile-name,
-[data-theme="dark"] .skill-tag {
+[data-bs-theme="dark"] .profile-title,
+[data-bs-theme="dark"] .profile-name,
+[data-bs-theme="dark"] .skill-tag {
     color: #15011a !important;
 }
 
-[data-theme="dark"] .projects-preview__title,
-[data-theme="dark"] .section-title {
+[data-bs-theme="dark"] .projects-preview__title,
+[data-bs-theme="dark"] .section-title {
     color: #fcfafc !important;
 }
 
