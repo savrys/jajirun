@@ -35,7 +35,8 @@ body {
     padding: 20px;
 }
 
-.contact-form-wrapper {
+/* СТИЛИ ДЛЯ КАРТОЧКИ - ЭТО ТО, ЧЕГО НЕ ХВАТАЛО */
+.contact-form-card {
     background: var(--background-white);
     padding: 40px;
     border-radius: 16px;
@@ -43,7 +44,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.contact-form-wrapper h1 {
+.contact-form-card h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: var(--text-primary);
@@ -137,11 +138,11 @@ body {
         padding: 15px;
     }
     
-    .contact-form-wrapper {
+    .contact-form-card {
         padding: 30px 25px;
     }
     
-    .contact-form-wrapper h1 {
+    .contact-form-card h1 {
         font-size: 2rem;
     }
 }
