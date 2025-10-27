@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Главная - Портфолио</title>
     <link rel="stylesheet" href="style/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    
     <div class="page">
         <header class="header">
             <h1 class="header__title">Портфолио студента</h1>
@@ -20,7 +22,7 @@
             </div>
         </header>
         
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item">
                     <a class="nav__link nav__link--active" href="index.html">Главная</a>
@@ -37,10 +39,28 @@
             </ul>
         </nav>
         
-        <main class="main">
+        <main class="main" id="main">
             <section class="profile">
                 <div class="card profile__card">
-                    <img class="profile__photo" src="images/photo.png" alt="Фото автора">
+                    <figure class="hero_image">
+                        <picture>
+                            <!-- Современные форматы -->
+                            <source
+                                type="image/avif"
+                                srcset="images/photo.avif"
+                                sizes="200px">
+                            <source
+                                type="image/webp"
+                                srcset="images/photo.webp"
+                                sizes="200px">
+                            <!-- Запасной JPEG -->
+                            <img class="profile__photo"
+                                src="images/photo.png"
+                                alt="Фото автора - Савин Арсений Дмитриевич"
+                                width="200" height="200"
+                                fetchpriority="high">
+                        </picture>
+                    </figure>
                     <div class="profile__info">
                         <h2 class="profile__name">Савин Арсений Дмитриевич</h2>
                         <p class="profile__group">ЭФБО-15-24</p>
@@ -70,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-3" onclick="downloadResume()">
+                        <button class="btn btn-primary mt-3" onclick="downloadResume()" style="min-height: 44px;">
                             <i class="bi bi-download"></i> Скачать резюме
                         </button>
                     </div>
@@ -85,23 +105,38 @@
                 </p>
             </section>
             
-            <section class="projects-preview">
+            <section class="projects-preview projects-area">
                 <h2 class="projects-preview__title">Лучшие проекты</h2>
                 <div class="projects-grid">
                     <div class="project-card" onclick="openProjectModal('project1')">
-                        <img src="images/goods1.jpg" alt="Личный сайт" class="project-image">
-                        <h3 class="project-title">Личный сайт</h3>
-                        <p class="project-tech">HTML, CSS</p>
+                        <picture>
+                            <source srcset="images/goods1.webp" type="image/webp">
+                            <img src="images/goods1.jpg" alt="Личный сайт - современный адаптивный сайт-портфолио" class="project-image" width="400" height="225" loading="lazy">
+                        </picture>
+                        <div class="project-content">
+                            <h3 class="project-title">Личный сайт</h3>
+                            <p class="project-tech">HTML, CSS, Bootstrap</p>
+                        </div>
                     </div>
                     <div class="project-card" onclick="openProjectModal('project2')">
-                        <img src="images/goods2.jpg" alt="Todo приложение" class="project-image">
-                        <h3 class="project-title">Todo приложение</h3>
-                        <p class="project-tech">JavaScript</p>
+                        <picture>
+                            <source srcset="images/goods2.webp" type="image/webp">
+                            <img src="images/goods2.jpg" alt="Todo приложение - управление задачами" class="project-image" width="400" height="225" loading="lazy">
+                        </picture>
+                        <div class="project-content">
+                            <h3 class="project-title">Todo приложение</h3>
+                            <p class="project-tech">JavaScript, LocalStorage</p>
+                        </div>
                     </div>
                     <div class="project-card" onclick="openProjectModal('project3')">
-                        <img src="images/goods3.jpg" alt="Интернет-магазин" class="project-image">
-                        <h3 class="project-title">Интернет-магазин</h3>
-                        <p class="project-tech">C++</p>
+                        <picture>
+                            <source srcset="images/goods3.webp" type="image/webp">
+                            <img src="images/goods3.jpg" alt="Интернет-магазин - полнофункциональный магазин" class="project-image" width="400" height="225" loading="lazy">
+                        </picture>
+                        <div class="project-content">
+                            <h3 class="project-title">Интернет-магазин</h3>
+                            <p class="project-tech">C++, Algorithms, Data Structures</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -113,7 +148,7 @@
                 <a href="mailto:savars328@gmail.com" class="contact-link">
                     <i class="bi bi-envelope"></i> savars328@gmail.com
                 </a>
-                <a href="https://github.com" class="contact-link">
+                <a href="https://github.com/savrys" class="contact-link">
                     <i class="bi bi-github"></i> GitHub
                 </a>
                 <span class="contact-link">
@@ -127,12 +162,15 @@
     <dialog id="projectModal">
         <div class="modal-header">
             <h2 id="modalProjectTitle">Название проекта</h2>
-            <button type="button" class="btn-close" onclick="projectModal.close()"></button>
+            <button type="button" class="btn-close" onclick="projectModal.close()" aria-label="Закрыть"></button>
         </div>
         <div class="modal-content">
             <img id="modalProjectImage" src="" alt="" class="modal-project-image">
             <div id="modalProjectDescription" class="project-description">
                 Описание проекта будет здесь
+            </div>
+            <div class="project-tech-tags mb-3" id="modalProjectTags">
+                <!-- Технологии будут добавлены через JS -->
             </div>
             <div class="project-links" id="modalProjectLinks">
                 <!-- Ссылки будут добавлены через JS -->
@@ -179,7 +217,7 @@
             project3: {
                 title: 'Интернет-магазин',
                 image: 'images/goods3.jpg',
-                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на C++ с использованием современных технологий.',
+                description: 'Полнофункциональный интернет-магазин с корзиной покупок, фильтрацией товаров и системой оформления заказов. Разработан на C++ с использованием современных алгоритмов и структур данных.',
                 technologies: ['C++', 'Algorithms', 'Data Structures'],
                 liveLink: 'https://savrys.github.io/frontend-and-backend-practice/',
                 sourceLink: 'https://github.com/savrys/frontend-and-backend-practice'
@@ -190,11 +228,21 @@
             const project = projects[projectId];
             const modal = document.getElementById('projectModal');
             const linksContainer = document.getElementById('modalProjectLinks');
+            const tagsContainer = document.getElementById('modalProjectTags');
             
             document.getElementById('modalProjectTitle').textContent = project.title;
             document.getElementById('modalProjectImage').src = project.image;
             document.getElementById('modalProjectImage').alt = project.title;
             document.getElementById('modalProjectDescription').textContent = project.description;
+            
+            // Обновляем теги технологий
+            tagsContainer.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.textContent = tech;
+                tagsContainer.appendChild(tag);
+            });
             
             // Очищаем и создаем новые ссылки
             linksContainer.innerHTML = '';
@@ -209,12 +257,14 @@
                 liveLink.href = project.liveLink;
                 liveLink.className = 'btn btn-primary';
                 liveLink.target = '_blank';
+                liveLink.rel = 'noopener noreferrer';
                 liveLink.innerHTML = '<i class="bi bi-eye"></i> Живая версия';
                 
                 const sourceLink = document.createElement('a');
                 sourceLink.href = project.sourceLink;
                 sourceLink.className = 'btn btn-outline-secondary';
                 sourceLink.target = '_blank';
+                sourceLink.rel = 'noopener noreferrer';
                 sourceLink.innerHTML = '<i class="bi bi-github"></i> Исходный код';
                 
                 linksContainer.appendChild(liveLink);
