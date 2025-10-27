@@ -530,75 +530,181 @@ a, button, input, textarea {
   transform: translateY(-2px);
 }
 
-/* ===== ДОСТУПНОСТЬ: СНИЖЕНИЕ ДВИЖЕНИЯ ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+/* ===== СТИЛИ ДЛЯ КОНТАКТНОЙ ФОРМЫ ===== */
+.contacts {
+  padding: var(--spacing-lg) 0;
 }
 
-/* ===== ДОСТУПНОСТЬ: ПОВЫШЕННЫЙ КОНТРАСТ ===== */
-@media (prefers-contrast: more) {
-  .theme-switcher__button,
-  .nav__link {
-    box-shadow: inset 0 0 0 2px #fff;
-  }
+.contacts__title {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 300;
 }
 
-/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ===== */
+/* Карточка контактной формы */
+.contact-form-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-form-header {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+  color: var(--text-light);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.contact-form-header h3 {
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--text-light);
+  font-size: 1.5rem;
+}
+
+.contact-form-body {
+  padding: var(--spacing-lg);
+}
+
+/* Группы формы */
+.contact-form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-form-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-form-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.contact-form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Кнопка отправки */
+.contact-form-submit {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  min-height: 50px;
+}
+
+.contact-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Контактная информация */
+.contact-info {
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-sm);
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+
+.contact-item strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.contact-item p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Социальные ссылки */
+.social-links h5 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary);
+  color: var(--text-light);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  background: var(--color-secondary);
+  color: var(--text-light);
+}
+
+/* Адаптивность для контактов */
 @media (max-width: 768px) {
-  .nav__list {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    align-items: center;
-  }
-
-  .profile__card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .main {
+  .contact-form-body {
     padding: var(--spacing-md);
   }
-
-  .theme-switcher {
-    position: static;
+  
+  .contact-form-header {
+    padding: var(--spacing-md);
+  }
+  
+  .contact-item {
+    flex-direction: column;
     text-align: center;
-    margin-top: var(--spacing-sm);
-  }
-
-  .header__title {
-    font-size: 1.5rem;
-  }
-
-  .header__subtitle {
-    font-size: 0.9rem;
-  }
-
-  .footer-contacts {
-    flex-direction: column;
     gap: var(--spacing-xs);
-    align-items: center;
   }
-
-  .project-links {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .header__title {
-    font-size: 1.3rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
+  
+  .social-links .d-flex {
+    justify-content: center;
   }
 }
 
@@ -707,4 +813,92 @@ dialog {
 
 [data-theme="dark"] .social-links h5 {
     color: var(--text-primary) !important;
+}
+
+/* Исправления для темной темы в контактах */
+[data-theme="dark"] .contact-form-card {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .contact-form-input {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .contact-item {
+    background: var(--bg-primary);
+}
+
+/* ===== ДОСТУПНОСТЬ: СНИЖЕНИЕ ДВИЖЕНИЯ ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== ДОСТУПНОСТЬ: ПОВЫШЕННЫЙ КОНТРАСТ ===== */
+@media (prefers-contrast: more) {
+  .theme-switcher__button,
+  .nav__link {
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ===== */
+@media (max-width: 768px) {
+  .nav__list {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: center;
+  }
+
+  .profile__card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: var(--spacing-md);
+  }
+
+  .theme-switcher {
+    position: static;
+    text-align: center;
+    margin-top: var(--spacing-sm);
+  }
+
+  .header__title {
+    font-size: 1.5rem;
+  }
+
+  .header__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: center;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__title {
+    font-size: 1.3rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
