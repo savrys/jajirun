@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
     
     <div class="page">
-        <header class="header">
+        <header class="header" role="banner">
             <h1 class="header__title">Мои проекты</h1>
             <p class="header__subtitle">Коллекция учебных и личных работ</p>
             <div class="theme-switcher">
-                <button class="theme-switcher__button" onclick="toggleTheme()">
-                    <i class="bi bi-moon-fill"></i> Сменить тему
+                <button class="theme-switcher__button" onclick="toggleTheme()" aria-label="Переключить между светлой и темной темой">
+                    <i class="bi bi-moon-fill" aria-hidden="true"></i> Сменить тему
                 </button>
             </div>
         </header>
@@ -25,23 +25,31 @@
         <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="../index.html">
+                        <i class="bi bi-house" aria-hidden="true"></i> Главная
+                    </a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link nav__link--active" href="projects.html">Проекты</a>
+                    <a class="nav__link nav__link--active" href="projects.html" aria-current="page">
+                        <i class="bi bi-folder" aria-hidden="true"></i> Проекты
+                    </a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="diary.html">Дневник</a>
+                    <a class="nav__link" href="diary.html">
+                        <i class="bi bi-journal" aria-hidden="true"></i> Дневник
+                    </a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" href="contacts.html">Контакты</a>
+                    <a class="nav__link" href="contacts.html">
+                        <i class="bi bi-telephone" aria-hidden="true"></i> Контакты
+                    </a>
                 </li>
             </ul>
         </nav>
         
-        <main class="main" id="main">
-            <section class="projects">
-                <h2 class="projects__title">Все проекты</h2>
+        <main class="main" id="main-content" role="main">
+            <section class="projects" aria-labelledby="projects-heading">
+                <h2 class="projects__title" id="projects-heading">Все проекты</h2>
                 
                 <!-- Фильтры -->
                 <div class="card mb-4">
@@ -61,7 +69,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Поиск проектов..." id="projectSearch" aria-label="Поиск проектов">
                                     <button class="btn btn-primary" type="button" aria-label="Найти">
-                                        <i class="bi bi-search"></i>
+                                        <i class="bi bi-search" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
@@ -153,7 +161,7 @@
             </section>
         </main>
         
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <p>© 2025 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>
@@ -270,9 +278,11 @@
             
             const themeButton = document.querySelector('.theme-switcher__button');
             if (newTheme === 'dark') {
-                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+                themeButton.innerHTML = '<i class="bi bi-sun-fill" aria-hidden="true"></i> Светлая тема';
+                themeButton.setAttribute('aria-label', 'Переключить на светлую тему');
             } else {
-                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+                themeButton.innerHTML = '<i class="bi bi-moon-fill" aria-hidden="true"></i> Темная тема';
+                themeButton.setAttribute('aria-label', 'Переключить на темную тему');
             }
         }
 
@@ -283,9 +293,11 @@
             
             const themeButton = document.querySelector('.theme-switcher__button');
             if (savedTheme === 'dark') {
-                themeButton.innerHTML = '<i class="bi bi-sun-fill"></i> Светлая тема';
+                themeButton.innerHTML = '<i class="bi bi-sun-fill" aria-hidden="true"></i> Светлая тема';
+                themeButton.setAttribute('aria-label', 'Переключить на светлую тему');
             } else {
-                themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> Темная тема';
+                themeButton.innerHTML = '<i class="bi bi-moon-fill" aria-hidden="true"></i> Темная тема';
+                themeButton.setAttribute('aria-label', 'Переключить на темную тему');
             }
 
             // Обработчики для фильтров
